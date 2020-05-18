@@ -1,0 +1,6 @@
+#Melihat jumlah penjualan dan jumlah order yang berstatus Finished per tahun
+
+SELECT  LEFT(order_date,4) as years, SUM(sales) AS sales, count(order_quantity) AS number_of_order
+FROM dqlab_sales_store
+WHERE order_status = " Order Finished  "
+GROUP BY years
