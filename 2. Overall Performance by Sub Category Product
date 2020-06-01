@@ -1,0 +1,7 @@
+# Performa Keseluruhan Berdasarkan Sub Produk Kategori untuk 2 tahun terakhir
+
+SELECT LEFT(order_date, 4) AS years, product_sub_category, SUM(sales) AS sales
+FROM dqlab_sales_store
+WHERE LEFT(order_date, 4) IN ("2011", "2012") AND order_status = " Order Finished  "
+GROUP BY years, product_sub_category
+ORDER BY years,  sales DESC;
