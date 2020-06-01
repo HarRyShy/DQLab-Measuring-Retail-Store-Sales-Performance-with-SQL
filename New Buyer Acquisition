@@ -1,0 +1,9 @@
+select left(first_date_trx, 4) AS years, COUNT(DISTINCT customer) AS number_of_new_customer
+FROM
+(
+	SELECT DISTINCT customer,  min(order_date) AS first_date_trx
+ 	FROM dqlab_sales_store
+ 	WHERE order_status = " Order Finished  "
+ 	GROUP BY 1
+) x
+ GROUP BY 1
